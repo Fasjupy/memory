@@ -31,7 +31,7 @@ jobs:
       - name: Log in to GitHub Container Registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
       - name: Push Docker Image
-        run: docker push ghcr.io/${{ github.repository }}/memory
+        run: docker push ghcr.io/fasjupy
 
   deploy-memory:
     runs-on: self-hosted
