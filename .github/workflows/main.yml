@@ -40,11 +40,11 @@ jobs:
     - name: Show Runner Pub Ip
       run: curl ifconfig.me
     - name: Deploiy via SSH
-        uses: appleboy/ssh-action@v0.1.3
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          scripts: |
-            docker-compose -f /home/dontworry/real_memory/memory/docker-compose.yml pull
-            docker-compose -f /home/dontworry/real_memory/memory/docker-compose.yml up -d
+      uses: appleboy/ssh-action@v0.1.3
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        scripts: |
+          docker-compose -f /home/dontworry/real_memory/memory/docker-compose.yml pull
+          docker-compose -f /home/dontworry/real_memory/memory/docker-compose.yml up -d
