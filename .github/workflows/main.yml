@@ -37,8 +37,8 @@ jobs:
     runs-on: self-hosted
     needs: push-memory
     steps:
-    - name: Show Runner Pub Ip2
-      run: curl https://api.ipify.org
+    - name: SSSShow Runner Pub Ip2
+      run: dig +short myip.opendns.com @resolver1.opendns.com
     - name: Deploiy via SSH
       uses: appleboy/ssh-action@v0.1.3
       with:
