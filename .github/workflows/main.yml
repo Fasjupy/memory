@@ -7,7 +7,7 @@ on:
 
 jobs:
   test-memory:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -18,14 +18,14 @@ jobs:
           done
 
   build-memory:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: test-memory
     steps:
       - name:  Build Docker Image
-        run: docker build -t fasjupy/memory .
+        run: docker build -t gchr.io/fasjupy/memory .
 
   push-memory:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: build-memory
     steps:
       - name: Log in to GitHub Container Registry
@@ -34,7 +34,7 @@ jobs:
         run: docker push ghcr.io/${{ github.repository }}/memory
 
   deploy-memory:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: push-memory
     steps:
       - name: Deploiy via SSH
