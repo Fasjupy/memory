@@ -22,7 +22,7 @@ jobs:
     needs: test-memory
     steps:
       - name:  Build Docker Image
-        run: docker build -t ghcr.io/fasjupy/memory -f ~/real_memory/memory/Dockerfile .
+        run: docker build -t ghcr.io/fasjupy/memory -f Dockerfile .
 
   push-memory:
     runs-on: ubuntu-latest
